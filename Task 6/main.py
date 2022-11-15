@@ -45,35 +45,49 @@
 
 # !!! Pastaba: Papildomas taškas, jeigu panaudosite klases. !!!
 
-ACCOUNTS = [10, 100, 20, 50, 30]
+# ACCOUNTS = [10, 100, 20, 50, 30]
 
 class Input:
     def __init__(self, ammount):
         self.ammount = ammount
+
     def __str__(self):
         return self.ammount
 
+
 class Funds:
     def __init__(self):
-        self.accounts = [10, 100, 20, 50, 30]
+        self.accounts = ["", 10, 100, 20, 50, 30]
+
     def __str__(self):
         return self.accounts
 
-    def add_income(self, ammount):
-        income = Input(ammount)
+    def add_funds(self, ammount):
         account = self.accounts
-        my_account = int(to_account_number)
-        sum = account[my_account] + ammount
-        account.pop(my_account)
-        account.insert(my_account, sum)
+        to_account = int(to_account_number)
+        sum = account[to_account] + ammount
+        account.pop(to_account)
+        account.insert(to_account, sum)
 
-    def 
+    def withdraw_funds(self, ammount):
+        account = self.accounts
+        my_account = int(from_account_number)
+        difference = account[my_account] - ammount
+        account.pop(my_account)
+        account.insert(my_account, difference)
+
+    def fund_check(self, ammount):
+        account = self.accounts
+        account_to_check = int(from_account_number)
+        return account[account_to_check] < ammount
 
 
 funds = Funds()
 
 while True:
-    print("Enter your request: ")
+    print("")
+    print("Your balance: ", [i for i in funds.accounts if i])
+    print("Enter your request number: ")
     print("1 - transfer")
     print("2 - deposit")
     print("3 - withdraw")
@@ -81,14 +95,70 @@ while True:
     choice = input()
 
     if choice == "1":
-        print("Enter amount: ")
+        print("Enter transfer amount: ")
         ammount = int(input("Amount: "))
-        # print("From which account you want to transfer:")
-        # from_account_number = input("Choose account 1 2 3 4 5: ")
-        print("To what account you want to transfer your funds:")
-        to_account_number = input("Choose account 1 2 3 4 5: ")
 
-        funds.add_income(ammount)
-        print("Pajamos įvestos sėkmingai!")
-        print(funds.accounts)
+        if ammount <= 0:
+            print("")
+            print("!!!Ammount must be above zero!!!")
+        else:
+            print("Enter account you want to transfer FROM?:")
+            from_account_number = input("Choose account 1 2 3 4 5 : ")
 
+            if int(from_account_number) > 5 or int(from_account_number) <= 0:
+                print("")
+                print("!!!Wrong account number!!!")
+
+            elif funds.fund_check(ammount):
+                print("")
+                print("!!Not enough funds in your account!!")
+
+            else:
+                print("Enter account you want to transfer TO?::")
+                to_account_number = input("Choose account 1 2 3 4 5 : ")
+                if int(to_account_number) > 5 or int(to_account_number) <= 0:
+                    print("")
+                    print("!!!Wrong account number!!!")
+
+                else:
+                    funds.withdraw_funds(ammount)
+                    funds.add_funds(ammount)
+                    print("")
+                    print("Transfer succesfull!!!")
+
+    if choice == "2":
+        print("Enter deposit amount: ")
+        ammount = int(input("Amount: "))
+        if ammount <= 0:
+            print("")
+            print("!!!Ammount must be above zero!!!")
+        else:
+            print("Enter account you want to deposit your funds TO:")
+            to_account_number = input("Choose account 1 2 3 4 5 : ")
+            if int(to_account_number) > 5 or int(to_account_number) <= 0:
+                print("")
+                print("!!!Wrong account number!!!")
+            else:
+                funds.add_funds(ammount)
+                print("")
+                print("Deposit succesfull!!!")
+
+    if choice == "3":
+        print("How much you want to withdraw?")
+        ammount = int(input("Amount: "))
+        if ammount <= 0:
+            print("")
+            print("!!!Ammount must be above zero!!!")
+        else:
+            print("Enter account you want to withdraw funds FROM:")
+            from_account_number = input("Choose account 1 2 3 4 5 : ")
+            if int(from_account_number) > 5 or int(from_account_number) <= 0:
+                print("")
+                print("!!!Wrong account number!!!")
+            elif funds.fund_check(ammount):
+                print("")
+                print("!!Not enough funds in your account!!")
+            else:
+                funds.withdraw_funds(ammount)
+                print("")
+                print("Withdrawal succesfull!!!")
