@@ -46,3 +46,49 @@
 # !!! Pastaba: Papildomas taškas, jeigu panaudosite klases. !!!
 
 ACCOUNTS = [10, 100, 20, 50, 30]
+
+class Input:
+    def __init__(self, ammount):
+        self.ammount = ammount
+    def __str__(self):
+        return self.ammount
+
+class Funds:
+    def __init__(self):
+        self.accounts = [10, 100, 20, 50, 30]
+    def __str__(self):
+        return self.accounts
+
+    def add_income(self, ammount):
+        income = Input(ammount)
+        account = self.accounts
+        my_account = int(to_account_number)
+        sum = account[my_account] + ammount
+        account.pop(my_account)
+        account.insert(my_account, sum)
+
+    def 
+
+
+funds = Funds()
+
+while True:
+    print("Enter your request: ")
+    print("1 - transfer")
+    print("2 - deposit")
+    print("3 - withdraw")
+
+    choice = input()
+
+    if choice == "1":
+        print("Enter amount: ")
+        ammount = int(input("Amount: "))
+        # print("From which account you want to transfer:")
+        # from_account_number = input("Choose account 1 2 3 4 5: ")
+        print("To what account you want to transfer your funds:")
+        to_account_number = input("Choose account 1 2 3 4 5: ")
+
+        funds.add_income(ammount)
+        print("Pajamos įvestos sėkmingai!")
+        print(funds.accounts)
+
