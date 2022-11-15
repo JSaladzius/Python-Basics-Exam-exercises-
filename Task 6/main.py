@@ -47,13 +47,6 @@
 
 # ACCOUNTS = [10, 100, 20, 50, 30]
 
-class Input:
-    def __init__(self, ammount):
-        self.ammount = ammount
-
-    def __str__(self):
-        return self.ammount
-
 
 class Funds:
     def __init__(self):
@@ -86,45 +79,44 @@ funds = Funds()
 
 while True:
     print("")
-    print("Your balance: ", [i for i in funds.accounts if i])
+    print("Your balance: ", [i for i in funds.accounts if i or i == 0])
     print("Enter your request number: ")
     print("1 - transfer")
     print("2 - deposit")
     print("3 - withdraw")
 
+
     choice = input()
+
 
     if choice == "1":
         print("Enter transfer amount: ")
         ammount = int(input("Amount: "))
-
         if ammount <= 0:
             print("")
             print("!!!Ammount must be above zero!!!")
         else:
             print("Enter account you want to transfer FROM?:")
             from_account_number = input("Choose account 1 2 3 4 5 : ")
-
             if int(from_account_number) > 5 or int(from_account_number) <= 0:
                 print("")
                 print("!!!Wrong account number!!!")
-
             elif funds.fund_check(ammount):
                 print("")
                 print("!!Not enough funds in your account!!")
-
             else:
-                print("Enter account you want to transfer TO?::")
+                print("Enter account you want to transfer TO?:")
                 to_account_number = input("Choose account 1 2 3 4 5 : ")
                 if int(to_account_number) > 5 or int(to_account_number) <= 0:
                     print("")
                     print("!!!Wrong account number!!!")
-
                 else:
                     funds.withdraw_funds(ammount)
                     funds.add_funds(ammount)
                     print("")
                     print("Transfer succesfull!!!")
+
+
 
     if choice == "2":
         print("Enter deposit amount: ")
@@ -142,6 +134,8 @@ while True:
                 funds.add_funds(ammount)
                 print("")
                 print("Deposit succesfull!!!")
+
+
 
     if choice == "3":
         print("How much you want to withdraw?")
