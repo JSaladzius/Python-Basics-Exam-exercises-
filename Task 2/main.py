@@ -33,6 +33,6 @@ print(getUserMedianAge(users))
 
 # 2
 def getOldestUser(users):
-  age_sort = sorted(users, key=lambda user: user["age"])
-  return age_sort
+  age_sort = sorted(users, key=lambda user: user["age"], reverse=True)
+  return age_sort[0]
 print(getOldestUser(users))
