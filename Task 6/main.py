@@ -78,7 +78,6 @@ class Check_operations():
             print("!!!Wrong account number!!!")
             return True
 
-
 class Funds_operations():
     def __init__(self):
         self.accounts = ["", 10, 100, 20, 50, 30]
@@ -181,3 +180,13 @@ while True:
             else:
                 funds.withdraw_funds(ammount)
                 print_Operations.print_4(choice_3)
+
+
+# Recommended:
+# nuo 134 iki 151
+# Rekomenduočiau visą logiką laikyti klasės viduje. 
+# Beje, nėra labai gerai turėti daug nested if. 
+# Tampa sudėtingiau sekti kodą.
+
+# Pagal aprašymą turėtų leisti į terminalą įvesti stringą. 
+# pvz. withdraw 2 10 arba transfer 5 1 20, kaip duota pavaizduota aprašyme.

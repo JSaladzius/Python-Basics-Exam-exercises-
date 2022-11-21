@@ -48,4 +48,17 @@ addFrame(canvas)
 print(*framed_picture, sep="\n")
 
 
+
+# Recommended:
+
+# raise Exception("Error: empty canvas provided") - būtų teisingiau.
+
+# Taip pat, tada pilnai galėtum įgalinti "return early pattern", kuris sako, 
+# kad reikėtų stengtis kuo greičiau išeiti nutraukti/išeiti iš funkcijos, 
+# jeigu paduodami nevalidūs duomenys ar panašiai. 
+# Tada vėliau nereikėtų rašyti else, nes priėjus raise, 
+# funkcija automatiškai būtų nutraukiama ir toliau nebevykdoma:
+
+
+
     

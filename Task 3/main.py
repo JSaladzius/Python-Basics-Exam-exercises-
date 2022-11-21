@@ -15,3 +15,7 @@ def addDigits(number):
 number = random.randint(10,999)
 print("Skaicius: " , number)
 print("Suma: " , addDigits(number))
+
+
+# Recommended:
+# return sum([int(x) for x in str(number)])

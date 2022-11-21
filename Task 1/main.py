@@ -25,3 +25,8 @@ def filterAdultDogOwers(users):
   return dogowners
 
 print(filterAdultDogOwers(users))
+
+# Recommended answer:
+# Kita alternatyva būtų naudoti List Comprehension, būtų ir labiau Pythonic way, ir trumpiau:
+# return [user for user in users if user["hasDog"] and user["age"] >= 18]
+

@@ -30,9 +30,19 @@ def getUserMedianAge(users):
   return median(user_age_list)
 print(getUserMedianAge(users))
 
+# Vėl su List Comprehension būtų galima parašyti trumpiau ir nereikėtų pačiam kurti naujo list.
+# median([user"age"] for user in users])
+
 
 # 2
 def getOldestUser(users):
   age_sort = sorted(users, key=lambda user: user["age"], reverse=True)
   return age_sort[0]
 print(getOldestUser(users))
+
+# Manau, kad geriau būtų naudoti max method, jis turėtų veikti truputį efektyviau. 
+# Mums reikia surasti didžiausią narį, todėl rikiuoti viso sąrašo nebūtina. 
+# O rikiavimas gana "brangi" operacija:
+
+# oldestUser = max(users, key=lambda user:user['age'])
+# return oldestUser['name']

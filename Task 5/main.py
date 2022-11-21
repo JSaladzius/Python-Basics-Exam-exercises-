@@ -20,6 +20,12 @@ for a in range(len(m1)):
 print(result)
 
 
+# Okay, čia jūs visi gana standartiškai 😄 kiek žiūrėjau dar niekas netikrino ar 
+# galima iš tikrųjų sudauginti matricas.
+#  O čia ir buvo kabliukas.
+# Šitai funkcijai reikėtų patikrinimo ar išvis galima tokia matricas dauginti, t.y. 
+# vienos matricos stulpelių skaičius būtų lygus kitus matricos eilučių skaičiui.
+
 
 
 
